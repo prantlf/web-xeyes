@@ -1,7 +1,7 @@
 {
   "name": "web-xeyes",
   "version": "1.0.0",
-  "description": "Shows a pair of eyes following movements of the mouse cursor on the page.",
+  "description": "A Web Component showing a pair of eyes following movements of the mouse cursor on the page, like the xeyes from X.Org tools.",
   "homepage": "https://github.com/prantlf/covid-19-brief#readme",
   "author": {
     "name": "Ferdinand Prantl",

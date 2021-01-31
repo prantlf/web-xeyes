@@ -7,7 +7,7 @@
 
 [![prantlf/web-xeyes](http://dockeri.co/image/prantlf/web-xeyes)](https://hub.docker.com/repository/docker/prantlf/web-xeyes/)
 
-Shows a pair of eyes following movements of the mouse cursor on the page. A [WebComponent] showing the same picture as the [xeyes] tool from [X.Org] tools.
+A [Web Component] showing a pair of eyes following movements of the mouse cursor on the page, like the [xeyes] from [X.Org] tools.
 
 ![Example](./example.gif)
 
@@ -25,5 +25,5 @@ Licensed under the MIT license.
 
 [X.Org]: https://www.x.org/
 [xeyes]: https://wikipedia.org/wiki/Xeyes
-[WebComponent]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
+[Web Component]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
 [documentation of the x-eyes]: ./src/components/x-eyes/#readme
