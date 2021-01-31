@@ -1,0 +1,75 @@
+{
+  "name": "web-xeyes",
+  "version": "1.0.0",
+  "description": "Shows a pair of eyes following movements of the mouse cursor on the page.",
+  "homepage": "https://github.com/prantlf/covid-19-brief#readme",
+  "author": {
+    "name": "Ferdinand Prantl",
+    "email": "prantlf@gmail.com",
+    "url": "http://prantl.tk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prantlf/covid-19-brief.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/covid-19-brief/issues"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/covid-19-brief/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/web-xeyes/web-xeyes.esm.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "lint": "eslint src",
+    "build": "NODE_ENV=production stencil build --docs",
+    "start": "NODE_ENV=development stencil build --dev --watch --serve",
+    "test": "npm run lint && npm run test.prod",
+    "test.prod": "NODE_ENV=production stencil test --spec --e2e --coverage",
+    "test.dev": "NODE_ENV=development stencil test --spec --e2e",
+    "test.watch": "NODE_ENV=development stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.20",
+    "@types/puppeteer": "5.4.2",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "jest": "26.6.3",
+    "jest-cli": "26.6.3",
+    "puppeteer": "5.5.0",
+    "typescript": "^4.1.3"
+  },
+  "keywords": [
+    "x-eyes",
+    "xeyes",
+    "web-component",
+    "html-element",
+    "element",
+    "component",
+    "html",
+    "stencil"
+  ]
+}

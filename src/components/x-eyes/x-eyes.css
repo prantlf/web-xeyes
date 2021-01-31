@@ -1,0 +1,50 @@
+:host {
+  /**
+   * @prop --scale: Size transformation factor.
+   *
+   * If you want to make the eyes bigger or smaller as a whole, setting this
+   * property is the simplest way. 1 (100%) is the default.
+   */
+  --scale: 1;
+  --rim-color: rgba(0,0,0,1);
+  --rim-style: solid;
+  --rim-thickness: calc(var(--scale) * 7px);
+  --eye-color: #fff;
+  --eye-width: calc(var(--scale) * 110px);
+  --eye-height: calc(var(--scale) * 150px);
+  --pupil-color: #000;
+  --iris-color: #000;
+  --iris-breadth: calc(var(--scale) * 7px);
+  /**
+   * @prop --iris-diameter: Diameter of the eye irs.
+   *
+   * Be careful not to make it bigger than the length of either of the axes
+   * of the elliptical shape of the eye. 25px is the default.
+   */
+   --iris-diameter: calc(var(--scale) * 25px);
+  display: inline-block;
+  width: calc(var(--eye-width) * 2 + var(--rim-thickness) * 2 + 1);
+  height: calc(var(--eye-height) + var(--rim-thickness) * 2);
+}
+
+.eye {
+  width: var(--eye-width);
+  height: var(--eye-height);
+  background: var(--eye-color);
+  border-radius: 50%;
+  border-width: var(--rim-thickness);
+  border-style: var(--rim-style);
+  border-color: var(--rim-color);
+  position: relative;
+  display: inline-block;
+  cursor: none;
+}
+
+.iris {
+  background: var(--pupil-color);
+  width: calc(var(--iris-diameter) - var(--iris-breadth) * 2);
+  height: calc(var(--iris-diameter) - var(--iris-breadth) * 2);
+  border-radius: 50%;
+  border: var(--iris-breadth) solid var(--iris-color);
+  position: absolute;
+}

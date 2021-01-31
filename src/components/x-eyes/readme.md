@@ -1,0 +1,103 @@
+# x-eyes
+
+Shows a pair of eyes following movements of the mouse cursor on the page.
+
+## Usage
+
+1: Insert the `x-eyes` element to your page, either with no attributes, or with explicit attributes to change the default behaviour:
+
+```html
+<x-eyes></x-eyes>
+<x-eyes delay=200 distance=5></x-eyes>
+```
+
+You can also use CSS properties to change the default look & feel:
+
+```html
+<style>
+  x-eyes.small-brown {
+    --scale: 0.2;
+    --iris-color: #850;
+  }
+</style>
+<x-eyes class=small-brown></x-eyes>
+```
+
+2: Insert the script loading the web component before the end of the `body` element:
+
+```html
+<script type=module src=https://unpkg.com/web-xeyes@1.0.0/dist/web-xeyes.esm.js></script>
+```
+
+### Local Installation
+
+You can install this component locally by using your favourite Node.js package manager:
+
+```sh
+npm i web-xeyes
+yarn add web-xeyes
+pnpm i web-xeyes
+```
+
+Then you can refer to the installed component directly from your web pages:
+
+```html
+<script type=module src=node_modules/web-xeyes/dist/web-xeyes.esm.js></script>
+```
+
+You can also include the component in your application bundle:
+
+```js
+import { XEyesElement } from 'web-xeyes'
+```
+
+<!-- Auto Generated Below -->
+
+## Properties
+
+| Property   | Attribute  | Description                                                                                                                                                         | Type                                                                                                                       | Default     |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `delay`    | `delay`    | Delay the reaction of the eye of the mouse cursor movement. A number representing a time period in milliseconds is expected.                                        | `number`                                                                                                                   | `0`         |
+| `distance` | `distance` | The minimum distance of the iris from the eye rim to keep when following the mouse cursor movements.                                                                | `number`                                                                                                                   | `0`         |
+| `position` | `position` | The starting position of the pupil in the vitreous. Either a position constant or a number representing an angle in degrees near the eye rim to place the pupil to. | `"bottom" \| "bottomLeft" \| "bottomRight" \| "center" \| "left" \| "right" \| "top" \| "topLeft" \| "topRight" \| number` | `'center'`  |
+| `radius`   | `radius`   | The clipping path of the movement of the eye pupil. Either the natural area of the eye vitreous, or only a circle in the middle of it.                              | `"circular" \| "natural"`                                                                                                  | `'natural'` |
+| `reset`    | `reset`    | Moves the pupil to the starting position specified by the `position` property, when the mouse cursor leaves the page boundary.                                      | `boolean`                                                                                                                  | `false`     |
+
+
+## Methods
+
+### `startFollowing() => Promise<boolean>`
+
+Enables the eye pupil to follow the mouse cursor movements. This happens
+automatically after inserting the element and can be changed by calling
+`stopFollowing`.
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
+
+### `stopFollowing() => Promise<boolean>`
+
+Disables the eye pupil to follow the mouse cursor movements. The mouse
+cursor movements can be followed again by calling `startFollowing`.
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
+
+
+## CSS Custom Properties
+
+| Name              | Description                                                                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--iris-diameter` | Diameter of the eye irs. Be careful not to make it bigger than the length of either of the axes of the elliptical shape of the eye. 25px is the default.   |
+| `--scale`         | Size transformation factor. If you want to make the eyes bigger or smaller as a whole, setting this property is the simplest way. 1 (100%) is the default. |
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
