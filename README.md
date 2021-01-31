@@ -5,8 +5,6 @@
 [![Dependency Status](https://david-dm.org/prantlf/web-xeyes.svg)](https://david-dm.org/prantlf/web-xeyes)
 [![devDependency Status](https://david-dm.org/prantlf/web-xeyes/dev-status.svg)](https://david-dm.org/prantlf/web-xeyes#info=devDependencies)
 
-[![prantlf/web-xeyes](http://dockeri.co/image/prantlf/web-xeyes)](https://hub.docker.com/repository/docker/prantlf/web-xeyes/)
-
 A [Web Component] showing a pair of eyes following movements of the mouse cursor on the page, like the [xeyes] from [X.Org] tools.
 
 ![Example](./example.gif)
