@@ -93,10 +93,19 @@ Type: `Promise<boolean>`
 
 ## CSS Custom Properties
 
-| Name              | Description                                                                                                                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--iris-diameter` | Diameter of the eye irs. Be careful not to make it bigger than the length of either of the axes of the elliptical shape of the eye. 25px is the default.   |
-| `--scale`         | Size transformation factor. If you want to make the eyes bigger or smaller as a whole, setting this property is the simplest way. 1 (100%) is the default. |
+| Name              | Description                                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--eye-color`     | Color of the eye vitreous. `#fff` is the default.                                                                                                             |
+| `--eye-height`    | Length of the y-axis of the eye ellipsis. Excludes the eye rim. `150px` is the default.                                                                       |
+| `--eye-width`     | Length of the x-axis of the eye ellipsis. Excludes the eye rim. `110px` is the default.                                                                       |
+| `--iris-breadth`  | Breadth of the eye irs outside of the pupil. Be careful not to make it greater than the diameter io the iris. `7px` is the default.                           |
+| `--iris-color`    | Color of the eye iris. `#000` is the default.                                                                                                                 |
+| `--iris-diameter` | Diameter of the eye irs. Be careful not to make it greater than the length of either of the axes of the elliptical shape of the eye. `25px` is the default.   |
+| `--pupil-color`   | Color of the eye pupil. `#000` is the default.                                                                                                                |
+| `--rim-color`     | Color of the eye vitreous rim - the border around the vitreous. `rgba(0,0,0,1)` is the default.                                                               |
+| `--rim-style`     | Line style of the eye rim - the border around the vitreous. `solid` is the default.                                                                           |
+| `--rim-thickness` | Thickness of the eye rim - the border around the vitreous. Be careful not to make it too thick. `7px` is the default.                                         |
+| `--scale`         | Size transformation factor. If you want to make the eyes greater or smaller as a whole, setting this property is the simplest way. `1` (100%) is the default. |
 
 
 ----------------------------------------------
