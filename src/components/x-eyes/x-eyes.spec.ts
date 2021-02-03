@@ -47,13 +47,14 @@ describe('x-eyes', () => {
       components: [XEyesElement],
       html: `<x-eyes></x-eyes>`,
     })
-    page.root.delay = '200'
-    page.root.distance = 10
-    page.root.position = 'bottom'
-    page.root.radius = 'circular'
-    page.root.reset = true
+    const { root } = page
+    root.delay = '200'
+    root.distance = 10
+    root.position = 'bottom'
+    root.radius = 'circular'
+    root.reset = true
     await page.waitForChanges();
-    expect(page.root).toEqualHtml(`
+    expect(root).toEqualHtml(`
       <x-eyes delay="200" distance="10" position="bottom" radius="circular" reset="">
         <mock:shadow-root>
           <div class="eye">
@@ -72,13 +73,14 @@ describe('x-eyes', () => {
       components: [XEyesElement],
       html: `<x-eyes></x-eyes>`,
     })
-    expect(page.root.setAttribute('delay', '200'))
-    expect(page.root.setAttribute('distance', '10'))
-    expect(page.root.setAttribute('position', 'bottom'))
-    expect(page.root.setAttribute('radius', 'circular'))
-    expect(page.root.setAttribute('reset', ''))
+    const { root } = page
+    expect(root.setAttribute('delay', '200'))
+    expect(root.setAttribute('distance', '10'))
+    expect(root.setAttribute('position', 'bottom'))
+    expect(root.setAttribute('radius', 'circular'))
+    expect(root.setAttribute('reset', ''))
     await page.waitForChanges();
-    expect(page.root).toEqualHtml(`
+    expect(root).toEqualHtml(`
       <x-eyes delay="200" distance="10" position="bottom" radius="circular" reset="">
         <mock:shadow-root>
           <div class="eye">
@@ -97,6 +99,7 @@ describe('x-eyes', () => {
       components: [XEyesElement],
       html: `<x-eyes></x-eyes>`,
     })
+    const { root } = page
     await testProperty('delay', -200, 0)
     await testProperty('distance', -10, 0)
     await testProperty('position', 'invalid', 'center')
@@ -106,12 +109,12 @@ describe('x-eyes', () => {
     /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     async function testProperty(name, invalid, valid) {
       try {
-        page.root[name] = invalid
+        root[name] = invalid
         await page.waitForChanges();
         throw new ValidationError(`invalid ${name} accepted`)
       } catch (error) {
         if (error instanceof ValidationError) throw error
-        // expect(page.root[name]).toBe(valid)
+        // expect(root[name]).toBe(valid)
       }
     }
   })
@@ -121,6 +124,7 @@ describe('x-eyes', () => {
       components: [XEyesElement],
       html: `<x-eyes></x-eyes>`,
     })
+    const { root } = page
     await testAttribute('delay', '-200', '0')
     await testAttribute('distance', '-10', '0')
     await testAttribute('position', 'invalid', 'center')
@@ -130,12 +134,12 @@ describe('x-eyes', () => {
     /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     async function testAttribute(name, invalid, valid) {
       try {
-        page.root.setAttribute(name, invalid)
+        root.setAttribute(name, invalid)
         await page.waitForChanges();
         throw new ValidationError(`invalid ${name} accepted`)
       } catch (error) {
         if (error instanceof ValidationError) throw error
-        // expect(page.root.getAttribute(name)).toEqual(valid)
+        // expect(root.getAttribute(name)).toEqual(valid)
       }
     }
   })
@@ -145,9 +149,10 @@ describe('x-eyes', () => {
       components: [XEyesElement],
       html: `<x-eyes></x-eyes>`,
     })
-    page.body.removeChild(page.root)
+    const { body, root } = page
+    body.removeChild(root)
     await page.waitForChanges();
-    page.body.appendChild(page.root)
+    body.appendChild(root)
     await page.waitForChanges();
   })
 })

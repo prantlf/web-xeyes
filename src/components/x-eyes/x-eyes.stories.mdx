@@ -1,0 +1,120 @@
+import { Story, Preview, Meta, ArgsTable } from "@storybook/addon-docs/blocks";
+import { XEyesElement } from '../../../dist/index.js'
+import notes from './readme.md'
+
+<Meta
+  title="Components/XEyesElement"
+  component={XEyesElement}
+  argTypes={{
+    delay: { control: 'number'},
+    distance: { control: 'number'},
+    position: { control: {
+      type: 'select',
+      options: [
+        'center', 'top', 'bottom', 'left', 'right', 'topRight',
+        'topLeft', 'bottomRight', 'bottomLeft'
+      ]
+    }},
+    radius: { control: {
+      type: 'select',
+      options: ['natural', 'circular']
+    }},
+    reset: { control: 'boolean'}
+  }}
+/>
+
+# &lt;x-eyes&gt;
+
+Shows a pair of eyes following movements of the mouse cursor on the page.
+
+## Default
+
+Default look &amp; feel:
+
+<Preview withToolbar>
+  <Story name="Default" parameters={{notes}}>
+    {`
+<x-eyes></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## Delayed
+
+Movement delayed by 200ms:
+
+<Preview withToolbar>
+  <Story name="Delayed" parameters={{notes}}>
+    {`
+<x-eyes delay=200></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## Distance
+
+Iris distance 5px:
+
+<Preview withToolbar>
+  <Story name="Distance" parameters={{notes}}>
+    {`
+<x-eyes distance=5></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## Position
+
+Iris starts at the bottom:
+
+<Preview withToolbar>
+  <Story name="Position" parameters={{notes}}>
+    {`
+<x-eyes position=bottom></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## Radius and Color
+
+Circular iris path, brown:
+
+<Preview withToolbar>
+  <Story name="Radius and Color" parameters={{notes}}>
+    {`
+<style>x-eyes.brown { --iris-color: #850 }</style>
+<x-eyes radius=circular class=brown></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## Reset and Size
+
+Reset iris position when mouse leaves the page, small:
+
+<Preview withToolbar>
+  <Story name="Reset and Size" parameters={{notes}}>
+    {`
+<style>x-eyes.small { --scale: 0.15 }</style>
+<x-eyes reset class=small></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## Configurable
+
+Configurable parameters:
+
+<Preview withToolbar>
+  <Story name="Configurable" args={{
+    delay: 0, distance: 0, position: 'bottom', radius: 'circular', reset: false
+  }} parameters={{ notes }}>
+    {args => `
+<x-eyes ${{ ...args }}></x-eyes>
+`}
+  </Story>
+</Preview>
+
+## API
+
+<ArgsTable of={XEyesElement} />
