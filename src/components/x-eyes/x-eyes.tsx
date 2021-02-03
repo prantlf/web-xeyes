@@ -12,6 +12,9 @@ const leftEye = Symbol('leftEye')
 const rightIrisEl = Symbol('rightIrisEl')
 const rightEye = Symbol('rightEye')
 
+/**
+ * Shows a pair of eyes following movements of the mouse cursor on the page.
+ */
 @Component({ tag: 'x-eyes', styleUrl: 'x-eyes.css', shadow: true })
 export class XEyesElement {
   /**

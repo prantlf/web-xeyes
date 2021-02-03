@@ -1,6 +1,8 @@
-# x-eyes
+# &lt;x-eyes&gt;
 
 Shows a pair of eyes following movements of the mouse cursor on the page.
+
+![Example](./example.gif)
 
 ## Usage
 

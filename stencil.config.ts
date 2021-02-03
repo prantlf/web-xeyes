@@ -7,6 +7,8 @@ export const config: Config = {
     { type: 'dist', esmLoaderPath: '../loader' },
     { type: 'dist-custom-elements-bundle' },
     { type: 'docs-readme' },
+    { type: 'docs-json', file: 'dist/docs/docs.json' },
+    { type: 'docs-vscode', file: 'dist/docs/vscode.json' },
     { type: 'www', serviceWorker: null }
   ]
 }
