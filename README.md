@@ -5,9 +5,11 @@
 [![Dependency Status](https://david-dm.org/prantlf/web-xeyes.svg)](https://david-dm.org/prantlf/web-xeyes)
 [![devDependency Status](https://david-dm.org/prantlf/web-xeyes/dev-status.svg)](https://david-dm.org/prantlf/web-xeyes#info=devDependencies)
 
+[![NPM Downloads](https://nodei.co/npm/web-xeyes.png?downloads=true&stars=true)](https://www.npmjs.com/package/web-xeyes)
+
 A [Web Component] showing a pair of eyes following movements of the mouse cursor on the page, like the [xeyes] from [X.Org] tools.
 
-![Example](./example.gif)
+![Example](./src/components/x-eyes/example.gif)
 
 See the [documentation of the x-eyes] component.
 
@@ -21,7 +23,10 @@ Copyright (c) 2021 Ferdinand Prantl
 
 Licensed under the MIT license.
 
+This project has started as a conversion of Felix Milea-Ciobanu's [jQuery xeyes] to pure JavaScript and a Web Component wrapper.
+
 [X.Org]: https://www.x.org/
 [xeyes]: https://wikipedia.org/wiki/Xeyes
 [Web Component]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
 [documentation of the x-eyes]: ./src/components/x-eyes/#readme
+[jQuery xeyes]: https://github.com/felixmc/jQuery-xeyes
