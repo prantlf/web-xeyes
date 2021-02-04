@@ -28,7 +28,7 @@ You can also use CSS properties to change the default look & feel:
 2: Insert the script loading the web component before the end of the `body` element:
 
 ```html
-<script type=module src=https://unpkg.com/web-xeyes@1.0.0/dist/web-xeyes.esm.js></script>
+<script type=module src=https://unpkg.com/web-xeyes@1.0.1/dist/web-xeyes/web-xeyes.esm.js></script>
 ```
 
 ### Local Installation
@@ -44,7 +44,7 @@ pnpm i web-xeyes
 Then you can refer to the installed component directly from your web pages:
 
 ```html
-<script type=module src=node_modules/web-xeyes/dist/web-xeyes.esm.js></script>
+<script type=module src=node_modules/web-xeyes/dist/web-xeyes/web-xeyes.esm.js></script>
 ```
 
 You can also include the component in your application bundle:

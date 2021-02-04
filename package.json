@@ -1,6 +1,6 @@
 {
   "name": "web-xeyes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Web Component showing a pair of eyes following movements of the mouse cursor on the page, like the xeyes from X.Org tools.",
   "homepage": "https://github.com/prantlf/web-xeyes#readme",
   "author": {
