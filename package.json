@@ -2,7 +2,7 @@
   "name": "web-xeyes",
   "version": "1.0.0",
   "description": "A Web Component showing a pair of eyes following movements of the mouse cursor on the page, like the xeyes from X.Org tools.",
-  "homepage": "https://github.com/prantlf/covid-19-brief#readme",
+  "homepage": "https://github.com/prantlf/web-xeyes#readme",
   "author": {
     "name": "Ferdinand Prantl",
     "email": "prantlf@gmail.com",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/prantlf/covid-19-brief.git"
+    "url": "https://github.com/prantlf/web-xeyes.git"
   },
   "bugs": {
-    "url": "https://github.com/prantlf/covid-19-brief/issues"
+    "url": "https://github.com/prantlf/web-xeyes/issues"
   },
   "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/prantlf/covid-19-brief/blob/master/LICENSE"
+      "url": "https://github.com/prantlf/web-xeyes/blob/master/LICENSE"
     }
   ],
   "engines": {
