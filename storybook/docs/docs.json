@@ -1,0 +1,256 @@
+{
+  "timestamp": "2021-02-06T15:26:27",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.4.0",
+    "typescriptVersion": "4.1.3"
+  },
+  "components": [
+    {
+      "filePath": "./src/components/x-eyes/x-eyes.tsx",
+      "encapsulation": "shadow",
+      "tag": "x-eyes",
+      "readme": "# &lt;x-eyes&gt;\n\nShows a pair of eyes following movements of the mouse cursor on the page.\n\n![Example](./example.gif)\n\nSee the [on-line demo](https://prantlf.github.io/web-xeyes/) or the [storybook](https://prantlf.github.io/web-xeyes/storybook/).\n\n## Usage\n\n1: Insert the `x-eyes` element to your page, either with no attributes, or with explicit attributes to change the default behaviour:\n\n```html\n<x-eyes></x-eyes>\n<x-eyes delay=200 distance=5></x-eyes>\n```\n\nYou can also use CSS properties to change the default look & feel:\n\n```html\n<style>\n  x-eyes.small-brown {\n    --scale: 0.2;\n    --iris-color: #850;\n  }\n</style>\n<x-eyes class=small-brown></x-eyes>\n```\n\n2: Insert the script loading the web component before the end of the `body` element:\n\n```html\n<script type=module src=https://unpkg.com/web-xeyes@1.0.1/dist/web-xeyes/web-xeyes.esm.js></script>\n```\n\n### Local Installation\n\nYou can install this component locally by using your favourite Node.js package manager:\n\n```sh\nnpm i web-xeyes\nyarn add web-xeyes\npnpm i web-xeyes\n```\n\nThen you can refer to the installed component directly from your web pages:\n\n```html\n<script type=module src=node_modules/web-xeyes/dist/web-xeyes/web-xeyes.esm.js></script>\n```\n\nYou can also include the component in your application bundle:\n\n```js\nimport { XEyesElement } from 'web-xeyes'\n```\n",
+      "docs": "Shows a pair of eyes following movements of the mouse cursor on the page.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "delay",
+          "type": "number",
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": true,
+          "docs": "Delay the reaction of the eye of the mouse cursor movement.\nA number representing a time period in milliseconds is expected.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "distance",
+          "type": "number",
+          "mutable": false,
+          "attr": "distance",
+          "reflectToAttr": true,
+          "docs": "The minimum distance of the iris from the eye rim to keep when following\nthe mouse cursor movements.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "\"bottom\" | \"bottomLeft\" | \"bottomRight\" | \"center\" | \"left\" | \"right\" | \"top\" | \"topLeft\" | \"topRight\" | number",
+          "mutable": false,
+          "attr": "position",
+          "reflectToAttr": true,
+          "docs": "The starting position of the pupil in the vitreous. Either a position\nconstant or a number representing an angle in degrees near the eye rim\nto place the pupil to.",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "bottomLeft",
+              "type": "string"
+            },
+            {
+              "value": "bottomRight",
+              "type": "string"
+            },
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            },
+            {
+              "value": "topLeft",
+              "type": "string"
+            },
+            {
+              "value": "topRight",
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "radius",
+          "type": "\"circular\" | \"natural\"",
+          "mutable": false,
+          "attr": "radius",
+          "reflectToAttr": true,
+          "docs": "The clipping path of the movement of the eye pupil. Either the natural\narea of the eye vitreous, or only a circle in the middle of it.",
+          "docsTags": [],
+          "default": "'natural'",
+          "values": [
+            {
+              "value": "circular",
+              "type": "string"
+            },
+            {
+              "value": "natural",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "reset",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "reset",
+          "reflectToAttr": true,
+          "docs": "Moves the pupil to the starting position specified by the `position`\nproperty, when the mouse cursor leaves the page boundary.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "resetPosition",
+          "returns": {
+            "type": "Promise<boolean>",
+            "docs": ""
+          },
+          "signature": "resetPosition() => Promise<boolean>",
+          "parameters": [],
+          "docs": "Sets the position of the eye pupil to the initial value set by `position`.\nReturns `true` if the position was reset.",
+          "docsTags": []
+        },
+        {
+          "name": "startFollowing",
+          "returns": {
+            "type": "Promise<boolean>",
+            "docs": ""
+          },
+          "signature": "startFollowing() => Promise<boolean>",
+          "parameters": [],
+          "docs": "Enables the eye pupil to follow the mouse cursor movements. This happens\nautomatically after inserting the element and can be changed by calling\n`stopFollowing`.\nReturns `true` if the movements started.",
+          "docsTags": []
+        },
+        {
+          "name": "stopFollowing",
+          "returns": {
+            "type": "Promise<boolean>",
+            "docs": ""
+          },
+          "signature": "stopFollowing() => Promise<boolean>",
+          "parameters": [],
+          "docs": "Disables the eye pupil to follow the mouse cursor movements. The mouse\ncursor movements can be followed again by calling `startFollowing`.\nReturns `true` if the movements stopped.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "resetposition",
+          "detail": "undefined",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted whenever the pupil position gets reset to the original value.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--eye-color",
+          "annotation": "prop",
+          "docs": "Color of the eye vitreous. `#fff` is the default."
+        },
+        {
+          "name": "--eye-height",
+          "annotation": "prop",
+          "docs": "Length of the y-axis of the eye ellipsis. Excludes the eye rim. `150px` is the default."
+        },
+        {
+          "name": "--eye-width",
+          "annotation": "prop",
+          "docs": "Length of the x-axis of the eye ellipsis. Excludes the eye rim. `110px` is the default."
+        },
+        {
+          "name": "--iris-breadth",
+          "annotation": "prop",
+          "docs": "Breadth of the eye irs outside of the pupil. Be careful not to make it greater than the diameter io the iris. `7px` is the default."
+        },
+        {
+          "name": "--iris-color",
+          "annotation": "prop",
+          "docs": "Color of the eye iris. `#000` is the default."
+        },
+        {
+          "name": "--iris-diameter",
+          "annotation": "prop",
+          "docs": "Diameter of the eye irs. Be careful not to make it greater than the length of either of the axes of the elliptical shape of the eye. `25px` is the default."
+        },
+        {
+          "name": "--pupil-color",
+          "annotation": "prop",
+          "docs": "Color of the eye pupil. `#000` is the default."
+        },
+        {
+          "name": "--rim-color",
+          "annotation": "prop",
+          "docs": "Color of the eye vitreous rim - the border around the vitreous. `rgba(0,0,0,1)` is the default."
+        },
+        {
+          "name": "--rim-style",
+          "annotation": "prop",
+          "docs": "Line style of the eye rim - the border around the vitreous. `solid` is the default."
+        },
+        {
+          "name": "--rim-thickness",
+          "annotation": "prop",
+          "docs": "Thickness of the eye rim - the border around the vitreous. Be careful not to make it too thick. `7px` is the default."
+        },
+        {
+          "name": "--scale",
+          "annotation": "prop",
+          "docs": "Size transformation factor. If you want to make the eyes greater or smaller as a whole, setting this property is the simplest way. `1` (100%) is the default."
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    }
+  ]
+}
