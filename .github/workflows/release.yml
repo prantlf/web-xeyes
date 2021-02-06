@@ -30,7 +30,7 @@ jobs:
     - name: Publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm publish --access public
+      run: npm publish
     - name: Get Version
       id: get_version
       run: echo "::set-output name=version::$(echo "${{ github.ref }}" | sed 's/[^.0-9]\+//')"
