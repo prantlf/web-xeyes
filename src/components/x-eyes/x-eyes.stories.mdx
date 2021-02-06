@@ -1,25 +1,15 @@
-import { Story, Preview, Meta, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Story, Preview, Meta, Props } from "@storybook/addon-docs/blocks"
 import { XEyesElement } from '../../../dist/index.js'
 import notes from './readme.md'
 
 <Meta
   title="Components/XEyesElement"
   component={XEyesElement}
-  argTypes={{
-    delay: { control: 'number'},
-    distance: { control: 'number'},
-    position: { control: {
-      type: 'select',
-      options: [
-        'center', 'top', 'bottom', 'left', 'right', 'topRight',
-        'topLeft', 'bottomRight', 'bottomLeft'
-      ]
-    }},
-    radius: { control: {
-      type: 'select',
-      options: ['natural', 'circular']
-    }},
-    reset: { control: 'boolean'}
+  argTypes={{ onResetPosition: { action: 'resetposition' } }}
+  parameters={{
+    notes,
+    actions: { handles: ['resetposition'] },
+    controls: { disable: true, expanded: true, hideNoControlsWarning: true }
   }}
 />
 
@@ -32,7 +22,7 @@ Shows a pair of eyes following movements of the mouse cursor on the page.
 Default look &amp; feel:
 
 <Preview withToolbar>
-  <Story name="Default" parameters={{notes}}>
+  <Story name="Default">
     {`
 <x-eyes></x-eyes>
 `}
@@ -44,7 +34,7 @@ Default look &amp; feel:
 Movement delayed by 200ms:
 
 <Preview withToolbar>
-  <Story name="Delayed" parameters={{notes}}>
+  <Story name="Delayed">
     {`
 <x-eyes delay=200></x-eyes>
 `}
@@ -56,7 +46,7 @@ Movement delayed by 200ms:
 Iris distance 5px:
 
 <Preview withToolbar>
-  <Story name="Distance" parameters={{notes}}>
+  <Story name="Distance">
     {`
 <x-eyes distance=5></x-eyes>
 `}
@@ -68,7 +58,7 @@ Iris distance 5px:
 Iris starts at the bottom:
 
 <Preview withToolbar>
-  <Story name="Position" parameters={{notes}}>
+  <Story name="Position">
     {`
 <x-eyes position=bottom></x-eyes>
 `}
@@ -80,7 +70,7 @@ Iris starts at the bottom:
 Circular iris path, brown:
 
 <Preview withToolbar>
-  <Story name="Radius and Color" parameters={{notes}}>
+  <Story name="Radius and Color">
     {`
 <style>x-eyes.brown { --iris-color: #850 }</style>
 <x-eyes radius=circular class=brown></x-eyes>
@@ -93,7 +83,7 @@ Circular iris path, brown:
 Reset iris position when mouse leaves the page, small:
 
 <Preview withToolbar>
-  <Story name="Reset and Size" parameters={{notes}}>
+  <Story name="Reset and Size">
     {`
 <style>x-eyes.small { --scale: 0.15 }</style>
 <x-eyes reset class=small></x-eyes>
@@ -106,15 +96,56 @@ Reset iris position when mouse leaves the page, small:
 Configurable parameters:
 
 <Preview withToolbar>
-  <Story name="Configurable" args={{
-    delay: 0, distance: 0, position: 'bottom', radius: 'circular', reset: false
-  }} parameters={{ notes }}>
-    {args => `
-<x-eyes ${{ ...args }}></x-eyes>
-`}
+  <Story name="Configurable" argTypes={{
+    delay: {
+      description: 'Delay the reaction of the eye of the mouse cursor movement. A number representing a time period in milliseconds is expected.',
+      control: 'number',
+      table: { defaultValue: { summary: 0 } }
+    },
+    distance: {
+      description: 'The minimum distance of the iris from the eye rim to keep when following the mouse cursor movements.',
+      control: 'number',
+      table: { defaultValue: { summary: 0 } }
+    },
+    position: {
+      description: 'The starting position of the pupil in the vitreous. Either a position constant or a number representing an angle in degrees near the eye rim to place the pupil to.',
+      control: {
+        type: 'select',
+        options: [
+          'center', 'top', 'bottom', 'left', 'right', 'topRight',
+          'topLeft', 'bottomRight', 'bottomLeft'
+        ]
+      },
+      table: { defaultValue: { summary: 'center' } }
+    },
+    radius: {
+      description: 'The clipping path of the movement of the eye pupil. Either the natural area of the eye vitreous, or only a circle in the middle of it.',
+      control: {
+        type: 'select',
+        options: ['natural', 'circular']
+      },
+      table: { defaultValue: { summary: 'natural' } }
+    },
+    reset: {
+      description: 'Moves the pupil to the starting position specified by the `position` property, when the mouse cursor leaves the page boundary.',
+      control: 'boolean',
+      table: { defaultValue: { summary: false } }
+    },
+    onResetPosition: {
+      description: 'Emitted whenever the pupil position gets reset to the original value.',
+      action: 'resetposition'
+    }
+  }} args={{
+    delay: 200, distance: 10, position: 'bottom', radius: 'circular', reset: true
+  }} parameters={{
+    controls: { disable: false }
+  }}>
+    {({ delay, distance, position, radius, reset }) =>
+`<x-eyes delay=${delay} distance=${distance} position=${position}
+               radius=${radius} reset=${reset}></x-eyes>`}
   </Story>
 </Preview>
 
 ## API
 
-<ArgsTable of={XEyesElement} />
+<Props of={XEyesElement} />

@@ -11,7 +11,7 @@ A [Web Component] showing a pair of eyes following movements of the mouse cursor
 
 ![Example](./src/components/x-eyes/example.gif)
 
-See the [documentation of the x-eyes] component.
+See the [documentation of the x-eyes] component and the [on-line demo] or the [storybook].
 
 ## Contributing
 
@@ -29,4 +29,6 @@ This project has started as a conversion of Felix Milea-Ciobanu's [jQuery xeyes]
 [xeyes]: https://wikipedia.org/wiki/Xeyes
 [Web Component]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
 [documentation of the x-eyes]: ./src/components/x-eyes/#readme
+[on-line demo]: https://prantlf.github.io/web-xeyes/
+[storybook]: https://prantlf.github.io/web-xeyes/storybook/
 [jQuery xeyes]: https://github.com/felixmc/jQuery-xeyes
