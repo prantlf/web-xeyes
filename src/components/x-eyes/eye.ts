@@ -11,7 +11,8 @@ type Options = {
   radius?: Radius
   position?: Position
   delay?: number
-  trigger?: Window | HTMLElement
+  trigger?: Window | HTMLElement,
+  onReset?: () => void
 }
 
 const defaultOptions: Options = {
@@ -147,6 +148,8 @@ export class Eye {
         y: this.position.y + Math.sin(degree) * (this.height / 2 - this.iris.height / 2 - this.distance)
       })
     }
+    const onReset = this.options.onReset
+    if (onReset) onReset()
   }
 }
 
@@ -158,6 +161,7 @@ export function attachEye(irisEl: HTMLElement, options: Options = {}): Eye {
   } = options
 
   const eye = new Eye(irisEl.parentElement, irisEl)
+  eye.options = options
   eye.distance = distance
 
   if (radius == 'circular' && eye.width > eye.height) eye.width = eye.height
@@ -165,7 +169,6 @@ export function attachEye(irisEl: HTMLElement, options: Options = {}): Eye {
 
   eye.setPosition(position)
 
-  eye.options = options
   return eye
 }
 

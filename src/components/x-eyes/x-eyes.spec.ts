@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { newSpecPage } from '@stencil/core/testing'
 import { XEyesElement } from './x-eyes'
 
@@ -106,7 +108,6 @@ describe('x-eyes', () => {
     await testProperty('radius', 'invalid', 'neutral')
     await testProperty('reset', 1, false)
 
-    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     async function testProperty(name, invalid, valid) {
       try {
         root[name] = invalid
@@ -131,7 +132,6 @@ describe('x-eyes', () => {
     await testAttribute('radius', 'invalid', 'neutral')
     await testAttribute('reset', '1', '')
 
-    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     async function testAttribute(name, invalid, valid) {
       try {
         root.setAttribute(name, invalid)
@@ -153,6 +153,16 @@ describe('x-eyes', () => {
     body.removeChild(root)
     await page.waitForChanges();
     body.appendChild(root)
+    await page.waitForChanges();
+  })
+
+  it('resets the eye pupil position to the initial value', async () => {
+    const page = await newSpecPage({
+      components: [XEyesElement],
+      html: `<x-eyes></x-eyes>`,
+    })
+    const { root } = page
+    root.resetPosition(root)
     await page.waitForChanges();
   })
 })

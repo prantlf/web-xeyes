@@ -4,6 +4,8 @@ Shows a pair of eyes following movements of the mouse cursor on the page.
 
 ![Example](./example.gif)
 
+See the [on-line demo](https://prantlf.github.io/web-xeyes/) or the [storybook](https://prantlf.github.io/web-xeyes/storybook/).
+
 ## Usage
 
 1: Insert the `x-eyes` element to your page, either with no attributes, or with explicit attributes to change the default behaviour:
@@ -67,13 +69,32 @@ import { XEyesElement } from 'web-xeyes'
 | `reset`    | `reset`    | Moves the pupil to the starting position specified by the `position` property, when the mouse cursor leaves the page boundary.                                      | `boolean`                                                                                                                  | `false`     |
 
 
+## Events
+
+| Event           | Description                                                           | Type                     |
+| --------------- | --------------------------------------------------------------------- | ------------------------ |
+| `resetposition` | Emitted whenever the pupil position gets reset to the original value. | `CustomEvent<undefined>` |
+
+
 ## Methods
+
+### `resetPosition() => Promise<boolean>`
+
+Sets the position of the eye pupil to the initial value set by `position`.
+Returns `true` if the position was reset.
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
 
 ### `startFollowing() => Promise<boolean>`
 
 Enables the eye pupil to follow the mouse cursor movements. This happens
 automatically after inserting the element and can be changed by calling
 `stopFollowing`.
+Returns `true` if the movements started.
 
 #### Returns
 
@@ -85,6 +106,7 @@ Type: `Promise<boolean>`
 
 Disables the eye pupil to follow the mouse cursor movements. The mouse
 cursor movements can be followed again by calling `startFollowing`.
+Returns `true` if the movements stopped.
 
 #### Returns
 

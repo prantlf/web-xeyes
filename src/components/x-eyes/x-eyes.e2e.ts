@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { newE2EPage, E2EPage, E2EElement } from '@stencil/core/testing'
 
 describe('x-eyes', () => {
@@ -46,18 +48,24 @@ describe('x-eyes', () => {
     const removed = await page.evaluate(() => {
       const xeyes = document.querySelector('x-eyes')
       if (!xeyes) throw new Error('no element to remember')
-      document.body.removeChild(xeyes)
-      window.xeyes = xeyes
+      document.body.removeChild(xeyes);
+      (window as any).xeyes = xeyes
       return true
     })
     expect(removed).toBeTruthy()
     const added = await page.evaluate(() => {
-      if (!window.xeyes) throw new Error('no remembered element')
-      document.body.appendChild(window.xeyes)
-      window.xeyes = undefined
+      if (!(window as any).xeyes) throw new Error('no remembered element')
+      document.body.appendChild((window as any).xeyes);
+      (window as any).xeyes = undefined
       return true
     })
     expect(added).toBeTruthy()
+  })
+
+  it('supports resetting the eye pupil position to the initial value', async () => {
+    const { page, component } = await insertComponent()
+    await component.callMethod('resetPosition')
+    await page.waitForChanges()
   })
 })
 

@@ -1,16 +1,11 @@
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-import { Component, Prop, Watch, Host, Method, h } from '@stencil/core'
+import { Component, Prop, Event, EventEmitter, Watch, Host, Method, h } from '@stencil/core'
 import {
   attachEye, detachEye, startFollowing, stopFollowing, Eye, Radius
 } from './eye'
 
-export type Position = 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topRight' |
-  'topLeft' | 'bottomRight' | 'bottomLeft' | number
-
-const leftIrisEl = Symbol('leftIrisEl')
-const leftEye = Symbol('leftEye')
-const rightIrisEl = Symbol('rightIrisEl')
-const rightEye = Symbol('rightEye')
+export type Position = 'center' | 'top' | 'bottom' | 'left' | 'right' |
+  'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft' | number
 
 /**
  * Shows a pair of eyes following movements of the mouse cursor on the page.
@@ -43,6 +38,11 @@ export class XEyesElement {
    * property, when the mouse cursor leaves the page boundary.
    */
   @Prop({ reflect: true }) reset = false
+
+  /**
+   * Emitted whenever the pupil position gets reset to the original value.
+   */
+  @Event({ eventName: 'resetposition' }) resetPositionEvent: EventEmitter<undefined>;
 
   @Watch('delay')
   validateDelay(newValue: string): void {
@@ -83,19 +83,19 @@ export class XEyesElement {
     }
   }
 
-  [leftIrisEl]: HTMLElement
-  [rightIrisEl]: HTMLElement
+  private leftIrisEl: HTMLElement
+  private rightIrisEl: HTMLElement
 
-  [leftEye]: Eye
-  [rightEye]: Eye
+  private leftEye: Eye
+  private rightEye: Eye
 
   render(): HTMLElement {
     return <Host>
   <div class="eye">
-    <div class="iris" ref={el => this[leftIrisEl] = el}></div>
+    <div class="iris" ref={el => this.leftIrisEl = el}></div>
   </div>
   <div class="eye">
-    <div class="iris" ref={el => this[rightIrisEl] = el}></div>
+    <div class="iris" ref={el => this.rightIrisEl = el}></div>
   </div>
 </Host>
   }
@@ -104,12 +104,13 @@ export class XEyesElement {
    * Enables the eye pupil to follow the mouse cursor movements. This happens
    * automatically after inserting the element and can be changed by calling
    * `stopFollowing`.
+   * Returns `true` if the movements started.
    */
   @Method()
   async startFollowing(): Promise<boolean> {
-    if (this[leftEye] && !this[leftEye].mousemove) {
-      startFollowing(this[leftEye])
-      startFollowing(this[rightEye])
+    if (this.leftEye && !this.leftEye.mousemove) {
+      startFollowing(this.leftEye)
+      startFollowing(this.rightEye)
       return true
     }
   }
@@ -117,12 +118,26 @@ export class XEyesElement {
   /**
    * Disables the eye pupil to follow the mouse cursor movements. The mouse
    * cursor movements can be followed again by calling `startFollowing`.
+   * Returns `true` if the movements stopped.
    */
   @Method()
   async stopFollowing(): Promise<boolean> {
-    if (this[leftEye] && this[leftEye].mousemove) {
-      stopFollowing(this[leftEye])
-      stopFollowing(this[rightEye])
+    if (this.leftEye && this.leftEye.mousemove) {
+      stopFollowing(this.leftEye)
+      stopFollowing(this.rightEye)
+      return true
+    }
+  }
+
+  /**
+   * Sets the position of the eye pupil to the initial value set by `position`.
+   * Returns `true` if the position was reset.
+   */
+  @Method()
+  async resetPosition(): Promise<boolean> {
+    if (this.leftEye) {
+      this.leftEye.setPosition(this.position)
+      this.rightEye.setPosition(this.position)
       return true
     }
   }
@@ -132,18 +147,19 @@ export class XEyesElement {
   }
 
   componentWillRender(): void {
-    if (this[leftEye]) {
+    if (this.leftEye) {
       this.stopFollowing()
-      detachEye(this[leftEye])
-      detachEye(this[rightEye])
+      detachEye(this.leftEye)
+      detachEye(this.rightEye)
     }
   }
 
   componentDidRender(): void {
     const { delay, distance, position, radius, reset } = this
-    const options = { delay, distance, position, radius, reset }
-    this[leftEye] = attachEye(this[leftIrisEl], options)
-    this[rightEye] = attachEye(this[rightIrisEl], options)
+    const onReset = (): void => { this.resetPositionEvent.emit() }
+    const options = { delay, distance, position, radius, reset, onReset }
+    this.leftEye = attachEye(this.leftIrisEl, options)
+    this.rightEye = attachEye(this.rightIrisEl, options)
     this.startFollowing()
   }
 
