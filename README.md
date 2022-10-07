@@ -4,11 +4,20 @@
 [![Build Status](https://github.com/prantlf/web-xeyes/workflows/Test/badge.svg)](https://github.com/prantlf/web-xeyes/actions)
 [![Dependency Status](https://david-dm.org/prantlf/web-xeyes.svg)](https://david-dm.org/prantlf/web-xeyes)
 [![devDependency Status](https://david-dm.org/prantlf/web-xeyes/dev-status.svg)](https://david-dm.org/prantlf/web-xeyes#info=devDependencies)
-
-[![NPM Downloads](https://nodei.co/npm/web-xeyes.png?downloads=true&stars=true)](https://www.npmjs.com/package/web-xeyes)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/prantlf/web-xeyes)
 
 A [Web Component] showing a pair of eyes following movements of the mouse cursor on the page, like the [xeyes] from [X.Org] tools.
 
+<!--
+```
+<custom-element-demo>
+  <template>
+    <script type=module src=https://unpkg.com/web-xeyes@1.0.2/dist/web-xeyes/web-xeyes.esm.js></script>
+    <x-eyes></x-eyes>
+  </template>
+</custom-element-demo>
+```
+-->
 ![Example](./src/components/x-eyes/example.gif)
 
 See the [documentation of the x-eyes] component and the [on-line demo] or the [storybook].
