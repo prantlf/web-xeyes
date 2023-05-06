@@ -30,7 +30,7 @@ You can also use CSS properties to change the default look & feel:
 2: Insert the script loading the web component before the end of the `body` element:
 
 ```html
-<script type=module src=https://unpkg.com/web-xeyes@1.0.2/dist/web-xeyes/web-xeyes.esm.js></script>
+<script type=module src=https://unpkg.com/web-xeyes@1.0.3/dist/web-xeyes/web-xeyes.esm.js></script>
 ```
 
 ### Local Installation
@@ -57,6 +57,10 @@ import { XEyesElement } from 'web-xeyes'
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Shows a pair of eyes following movements of the mouse cursor on the page.
 
 ## Properties
 

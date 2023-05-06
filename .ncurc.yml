@@ -1,3 +1,11 @@
 reject:
+  - "@storybook/addon-a11y"
+  - "@storybook/addon-essentials"
+  - "@storybook/addon-links"
+  - "@storybook/addon-notes"
+  - "@storybook/html"
+  - "@types/jest"
+  - jest
+  - jest-cli
   - react
   - react-dom

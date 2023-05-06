@@ -7,7 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Position } from "./components/x-eyes/x-eyes";
 import { Radius } from "./components/x-eyes/eye";
+export { Position } from "./components/x-eyes/x-eyes";
+export { Radius } from "./components/x-eyes/eye";
 export namespace Components {
+    /**
+     * Shows a pair of eyes following movements of the mouse cursor on the page.
+     */
     interface XEyes {
         /**
           * Delay the reaction of the eye of the mouse cursor movement. A number representing a time period in milliseconds is expected.
@@ -43,7 +48,14 @@ export namespace Components {
         "stopFollowing": () => Promise<boolean>;
     }
 }
+export interface XEyesCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXEyesElement;
+}
 declare global {
+    /**
+     * Shows a pair of eyes following movements of the mouse cursor on the page.
+     */
     interface HTMLXEyesElement extends Components.XEyes, HTMLStencilElement {
     }
     var HTMLXEyesElement: {
@@ -55,6 +67,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * Shows a pair of eyes following movements of the mouse cursor on the page.
+     */
     interface XEyes {
         /**
           * Delay the reaction of the eye of the mouse cursor movement. A number representing a time period in milliseconds is expected.
@@ -67,7 +82,7 @@ declare namespace LocalJSX {
         /**
           * Emitted whenever the pupil position gets reset to the original value.
          */
-        "onResetposition"?: (event: CustomEvent<undefined>) => void;
+        "onResetposition"?: (event: XEyesCustomEvent<undefined>) => void;
         /**
           * The starting position of the pupil in the vitreous. Either a position constant or a number representing an angle in degrees near the eye rim to place the pupil to.
          */
@@ -89,6 +104,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * Shows a pair of eyes following movements of the mouse cursor on the page.
+             */
             "x-eyes": LocalJSX.XEyes & JSXBase.HTMLAttributes<HTMLXEyesElement>;
         }
     }
