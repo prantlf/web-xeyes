@@ -1,1 +1,2 @@
-import{p as o,b as s}from"./p-381d3cb3.js";(()=>{const s=import.meta.url,t={};return""!==s&&(t.resourcesUrl=new URL(".",s).href),o(t)})().then((o=>s([["p-d6fdc0e9",[[1,"x-eyes",{delay:[514],distance:[514],position:[520],radius:[513],reset:[516],startFollowing:[64],stopFollowing:[64],resetPosition:[64]}]]]],o)));
+import{p as e,b as o}from"./p-2e7dbaaa.js";export{s as setNonce}from"./p-2e7dbaaa.js";const t=()=>{const s=import.meta.url;const o={};if(s!==""){o.resourcesUrl=new URL(".",s).href}return e(o)};t().then((e=>o([["p-bf5e99ee",[[1,"x-eyes",{delay:[514],distance:[514],position:[520],radius:[513],reset:[516],startFollowing:[64],stopFollowing:[64],resetPosition:[64]}]]]],e)));
+//# sourceMappingURL=web-xeyes.esm.js.map

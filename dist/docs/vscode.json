@@ -1,0 +1,71 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "x-eyes",
+      "description": {
+        "kind": "markdown",
+        "value": "Shows a pair of eyes following movements of the mouse cursor on the page."
+      },
+      "attributes": [
+        {
+          "name": "delay",
+          "description": "Delay the reaction of the eye of the mouse cursor movement.\nA number representing a time period in milliseconds is expected."
+        },
+        {
+          "name": "distance",
+          "description": "The minimum distance of the iris from the eye rim to keep when following\nthe mouse cursor movements."
+        },
+        {
+          "name": "position",
+          "description": "The starting position of the pupil in the vitreous. Either a position\nconstant or a number representing an angle in degrees near the eye rim\nto place the pupil to.",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "bottomLeft"
+            },
+            {
+              "name": "bottomRight"
+            },
+            {
+              "name": "center"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "topLeft"
+            },
+            {
+              "name": "topRight"
+            }
+          ]
+        },
+        {
+          "name": "radius",
+          "description": "The clipping path of the movement of the eye pupil. Either the natural\narea of the eye vitreous, or only a circle in the middle of it.",
+          "values": [
+            {
+              "name": "circular"
+            },
+            {
+              "name": "natural"
+            }
+          ]
+        },
+        {
+          "name": "reset",
+          "description": "Moves the pupil to the starting position specified by the `position`\nproperty, when the mouse cursor leaves the page boundary."
+        }
+      ]
+    }
+  ]
+}

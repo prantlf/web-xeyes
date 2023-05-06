@@ -1,16 +1,16 @@
 {
-  "timestamp": "2021-02-06T15:26:27",
+  "timestamp": "2023-05-06T21:26:36",
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.4.0",
-    "typescriptVersion": "4.1.3"
+    "version": "3.2.2",
+    "typescriptVersion": "4.9.5"
   },
   "components": [
     {
       "filePath": "./src/components/x-eyes/x-eyes.tsx",
       "encapsulation": "shadow",
       "tag": "x-eyes",
-      "readme": "# &lt;x-eyes&gt;\n\nShows a pair of eyes following movements of the mouse cursor on the page.\n\n![Example](./example.gif)\n\nSee the [on-line demo](https://prantlf.github.io/web-xeyes/) or the [storybook](https://prantlf.github.io/web-xeyes/storybook/).\n\n## Usage\n\n1: Insert the `x-eyes` element to your page, either with no attributes, or with explicit attributes to change the default behaviour:\n\n```html\n<x-eyes></x-eyes>\n<x-eyes delay=200 distance=5></x-eyes>\n```\n\nYou can also use CSS properties to change the default look & feel:\n\n```html\n<style>\n  x-eyes.small-brown {\n    --scale: 0.2;\n    --iris-color: #850;\n  }\n</style>\n<x-eyes class=small-brown></x-eyes>\n```\n\n2: Insert the script loading the web component before the end of the `body` element:\n\n```html\n<script type=module src=https://unpkg.com/web-xeyes@1.0.1/dist/web-xeyes/web-xeyes.esm.js></script>\n```\n\n### Local Installation\n\nYou can install this component locally by using your favourite Node.js package manager:\n\n```sh\nnpm i web-xeyes\nyarn add web-xeyes\npnpm i web-xeyes\n```\n\nThen you can refer to the installed component directly from your web pages:\n\n```html\n<script type=module src=node_modules/web-xeyes/dist/web-xeyes/web-xeyes.esm.js></script>\n```\n\nYou can also include the component in your application bundle:\n\n```js\nimport { XEyesElement } from 'web-xeyes'\n```\n",
+      "readme": "# &lt;x-eyes&gt;\n\nShows a pair of eyes following movements of the mouse cursor on the page.\n\n![Example](./example.gif)\n\nSee the [on-line demo](https://prantlf.github.io/web-xeyes/) or the [storybook](https://prantlf.github.io/web-xeyes/storybook/).\n\n## Usage\n\n1: Insert the `x-eyes` element to your page, either with no attributes, or with explicit attributes to change the default behaviour:\n\n```html\n<x-eyes></x-eyes>\n<x-eyes delay=200 distance=5></x-eyes>\n```\n\nYou can also use CSS properties to change the default look & feel:\n\n```html\n<style>\n  x-eyes.small-brown {\n    --scale: 0.2;\n    --iris-color: #850;\n  }\n</style>\n<x-eyes class=small-brown></x-eyes>\n```\n\n2: Insert the script loading the web component before the end of the `body` element:\n\n```html\n<script type=module src=https://unpkg.com/web-xeyes@1.0.3/dist/web-xeyes/web-xeyes.esm.js></script>\n```\n\n### Local Installation\n\nYou can install this component locally by using your favourite Node.js package manager:\n\n```sh\nnpm i web-xeyes\nyarn add web-xeyes\npnpm i web-xeyes\n```\n\nThen you can refer to the installed component directly from your web pages:\n\n```html\n<script type=module src=node_modules/web-xeyes/dist/web-xeyes/web-xeyes.esm.js></script>\n```\n\nYou can also include the component in your application bundle:\n\n```js\nimport { XEyesElement } from 'web-xeyes'\n```\n",
       "docs": "Shows a pair of eyes following movements of the mouse cursor on the page.",
       "docsTags": [],
       "usage": {},
