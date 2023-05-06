@@ -1,9 +1,8 @@
 # X-Eyes Web Component
 
-[![NPM version](https://badge.fury.io/js/web-xeyes.png)](http://badge.fury.io/js/web-xeyes)
-[![Build Status](https://github.com/prantlf/web-xeyes/workflows/Test/badge.svg)](https://github.com/prantlf/web-xeyes/actions)
-[![Dependency Status](https://david-dm.org/prantlf/web-xeyes.svg)](https://david-dm.org/prantlf/web-xeyes)
-[![devDependency Status](https://david-dm.org/prantlf/web-xeyes/dev-status.svg)](https://david-dm.org/prantlf/web-xeyes#info=devDependencies)
+[![Latest version](https://img.shields.io/npm/v/web-xeyes)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/web-xeyes)
+](https://www.npmjs.com/package/web-xeyes)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/web-xeyes)
 
 A [Web Component] showing a pair of eyes following movements of the mouse cursor on the page, like the [xeyes] from [X.Org] tools.
